@@ -4,6 +4,9 @@ import Home from './Home';
 import '../App.css';
 import { handleInitialData } from '../actions/shared';
 import AppNavbar from './AppNavbar';
+import Leaderboard from './Leaderboard';
+import NewQuestion from './NewQuestion';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
@@ -12,11 +15,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <AppNavbar />
+      <Router>
+        <div className="App">
+          <AppNavbar />
+        </div>
 
-        <Home />
-      </div>
+        <Route exact path="/" component={Home} />
+        <Route path="/new-question" component={NewQuestion} />
+        <Route path="/leaderboard" component={Leaderboard} />
+      </Router>
     );
   }
 }

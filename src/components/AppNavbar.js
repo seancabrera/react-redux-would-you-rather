@@ -1,7 +1,13 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
+import {NavLink as Link} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
+import Home from './Home';
+import Leaderboard from './Leaderboard';
+import NewQuestion from './NewQuestion';
 
 class AppNavbar extends React.Component {
   render() {
@@ -9,11 +15,25 @@ class AppNavbar extends React.Component {
       <Navbar bg="dark" variant="dark" expand="md">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Navbar.Brand href="#home">Would You Rather</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand href="/">Would You Rather</Navbar.Brand>
+          </LinkContainer>
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#new-question">New Question</Nav.Link>
-            <Nav.Link href="#leaderboard">Leader Board</Nav.Link>
+            <NavItem>
+              <LinkContainer to="/">
+                <NavLink>Home</NavLink>
+              </LinkContainer>
+            </NavItem>
+            <NavItem>
+              <LinkContainer to="/new-question">
+                <NavLink>New Question</NavLink>
+              </LinkContainer>
+            </NavItem>
+            <NavItem>
+              <LinkContainer to="/leaderboard">
+                <NavLink>Leaderboard</NavLink>
+              </LinkContainer>
+            </NavItem>
           </Nav>
           <Nav>
             <Navbar.Text className="navbar-user">
