@@ -14,8 +14,8 @@ class QuestionResults extends React.Component {
     const optionOneVotes = question.optionOne.votes.length;
     const optionTwoVotes = question.optionTwo.votes.length;
 
-    const optionOnePercentage = optionOneVotes / totalVotes * 100;
-    const optionTwoPercentage = optionTwoVotes / totalVotes * 100;
+    let optionOnePercentage = getRoundedPercentage(optionOneVotes, totalVotes);
+    let optionTwoPercentage = getRoundedPercentage(optionTwoVotes, totalVotes);
 
     const authedUserVotedOptionOne = question.optionOne.votes.includes(authedUser);
     const authedUserVotedOptionTwo = question.optionTwo.votes.includes(authedUser);
@@ -50,12 +50,16 @@ class QuestionResults extends React.Component {
   }
 }
 
+function getRoundedPercentage(optionVotes, totalVotes) {
+  const optionPercentage = optionVotes / totalVotes * 100;
+  return Math.round( optionPercentage * 10 ) / 10;
+}
+
 function mapStateToProps ({ authedUser, users }) {
   return {
     authedUser,
     users
   };
 }
-
 
 export default connect(mapStateToProps)(QuestionResults);
