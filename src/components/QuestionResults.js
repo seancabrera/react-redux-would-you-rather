@@ -14,15 +14,14 @@ class QuestionResults extends React.Component {
     const optionOneVotes = question.optionOne.votes.length;
     const optionTwoVotes = question.optionTwo.votes.length;
 
-    let optionOnePercentage = getRoundedPercentage(optionOneVotes, totalVotes);
-    let optionTwoPercentage = getRoundedPercentage(optionTwoVotes, totalVotes);
+    const optionOnePercentage = getRoundedPercentage(optionOneVotes, totalVotes);
+    const optionTwoPercentage = getRoundedPercentage(optionTwoVotes, totalVotes);
 
     const authedUserVotedOptionOne = question.optionOne.votes.includes(authedUser);
     const authedUserVotedOptionTwo = question.optionTwo.votes.includes(authedUser);
 
     return (
       <div>
-        <div>
         <Card>
           <Card.Header>Asked by {author.name}</Card.Header>
           <h2>Results</h2>
@@ -42,9 +41,7 @@ class QuestionResults extends React.Component {
             totalVotes={totalVotes}
             userVoted={authedUserVotedOptionTwo}
           />
-
         </Card>
-      </div>
       </div>
     );
   }
