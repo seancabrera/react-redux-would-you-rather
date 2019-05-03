@@ -32,7 +32,7 @@
   }
 }
 
-.home {
+.app-body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -40,11 +40,45 @@
   margin-bottom: 20px;
 }
 
-.question-summary-button {
+.question-button {
   margin: 10px;
-  margin-top: 0px;
+  margin-top: 10px;
+  width: 95%;
+}
+
+.question-button-container {
+  text-align: center;
 }
 
 .navbar-user {
   margin-right: 30px;
+}
+
+.question-options {
+  text-align: left;
+}
+
+.question-options label {
+  margin-left: 10px;
+}
+
+.question-option-result {
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+}
+
+.option-vote-summary {
+  text-align: center;
+}
+
+.result-bar {
+  margin-top: 10px;
+}
+
+.you-voted-badge {
+  margin-top: 15px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }

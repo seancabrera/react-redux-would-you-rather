@@ -1,7 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
+import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 class QuestionSummary extends React.Component {
   render() {
@@ -17,7 +18,11 @@ class QuestionSummary extends React.Component {
           <h2>Would you rather:</h2>
           <p>1. {question.optionOne.text}</p>
           <p>2. {question.optionTwo.text}</p>
-          <Button className='question-summary-button' variant="info">View Poll</Button>
+          <Link to={'/questions/' + question.id}>
+            <Button className='question-button' variant="info">
+              View Poll
+            </Button>
+          </Link>
         </Card>
       </div>
     );

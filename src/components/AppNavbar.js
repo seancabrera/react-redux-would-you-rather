@@ -3,11 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
-import {NavLink as Link} from 'react-router-dom';
-import {LinkContainer} from 'react-router-bootstrap';
-import Home from './Home';
-import Leaderboard from './Leaderboard';
-import NewQuestion from './NewQuestion';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class AppNavbar extends React.Component {
   render() {
