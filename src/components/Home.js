@@ -31,17 +31,25 @@ class Home extends React.Component {
 }
 
 function getAnsweredQuestions(questions, authedUserId) {
-  return questions.filter(question => {
+  let answeredQuestions = questions.filter(question => {
     return question.optionOne.votes.includes(authedUserId) ||
       question.optionTwo.votes.includes(authedUserId);
   });
+
+  return answeredQuestions.sort(sortByTimestamp);
 }
 
 function getUnansweredQuestions(questions, authedUserId) {
-  return questions.filter(question => {
+  let unansweredQuestions = questions.filter(question => {
     return !question.optionOne.votes.includes(authedUserId) &&
       !question.optionTwo.votes.includes(authedUserId);
   });
+
+  return unansweredQuestions.sort(sortByTimestamp);
+}
+
+function sortByTimestamp(a, b) {
+  return b.timestamp - a.timestamp;
 }
 
 function mapStateToProps ({ authedUser, questions }) {

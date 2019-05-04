@@ -32,3 +32,16 @@ export function handleSaveQuestionAnswer({authedUser, qid, answer}) {
       });
   }
 }
+
+export function saveQuestion({author, optionOneText, optionTwoText}) {
+  return (dispatch) => {
+    return data._saveQuestion({author, optionOneText, optionTwoText})
+      .then(() => {
+        return dispatch(handleInitialData());
+      })
+      .catch((e) => {
+        alert('Failed to save question');
+        dispatch(handleInitialData());
+      });
+  }
+}
