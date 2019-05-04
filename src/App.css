@@ -86,3 +86,21 @@
 .new-question-input {
   margin: 10px;
 }
+
+.app-card {
+  margin-bottom: 20px;
+}
+
+.leaderboard-card-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.leaderboard-score-details {
+  margin-top: 20px;
+}
+
+.leaderboard-score {
+  font-size: 24px;
+}

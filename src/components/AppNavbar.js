@@ -27,7 +27,7 @@ class AppNavbar extends React.Component {
             </NavItem>
             <NavItem>
               <LinkContainer to="/leaderboard">
-                <NavLink>Leaderboard</NavLink>
+                <NavLink>Leader Board</NavLink>
               </LinkContainer>
             </NavItem>
           </Nav>

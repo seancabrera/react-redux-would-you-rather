@@ -13,7 +13,7 @@ class QuestionSummary extends React.Component {
 
     return (
       <div className="home">
-        <Card>
+        <Card className="app-card">
           <Card.Header>{author.name} asks:</Card.Header>
           <h2>Would you rather:</h2>
           <p>1. {question.optionOne.text}</p>

@@ -15,11 +15,13 @@ class Home extends React.Component {
       <div className="home">
         <Tabs defaultActiveKey="unanswered">
           <Tab eventKey="unanswered" title="Unanswered Questions">
+            <br/>
             {unansweredQuestions.map(question => (
               <QuestionSummary key={question.id} question={question} />
             ))}
           </Tab>
           <Tab eventKey="answered" title="Answered Questions">
+            <br/>
             {answeredQuestions.map(question => (
               <QuestionSummary key={question.id} question={question} />
             ))}
