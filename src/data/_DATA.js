@@ -6,6 +6,8 @@ let users = {
   tombrady: {
     id: 'tombrady',
     name: 'Tom Brady',
+
+    // This avatar image was modified from https://commons.wikimedia.org/wiki/File:Tom_Brady_2011.JPG
     avatarURL: '/images/Tom Brady Avatar.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
@@ -28,6 +30,8 @@ let users = {
   stephencurry: {
     id: 'stephencurry',
     name: 'Stephen Curry',
+
+    // This avatar image was modified from https://commons.wikimedia.org/wiki/File:Stephen_Curry_2.jpg
     avatarURL: '/images/Stephen Curry Avatar.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
