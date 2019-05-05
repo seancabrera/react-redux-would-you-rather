@@ -4,7 +4,7 @@ import { receiveUsers } from '../actions/users';
 import { setAuthedUser } from '../actions/authedUser';
 
 // TODO - implement login functionality. Hardcoding for now.
-const AUTHED_ID = 'tylermcginnis';
+const AUTHED_ID = 'seancabrera';
 
 export function handleInitialData() {
   return (dispatch) => {

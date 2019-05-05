@@ -14,8 +14,11 @@ class QuestionSummary extends React.Component {
     return (
       <div className="home">
         <Card className="app-card">
-          <Card.Header>{author.name} asks:</Card.Header>
-          <h2>Would you rather:</h2>
+          <Card.Header>
+            <img className="card-header-avatar" alt={author.name} src={author.avatarURL}/>
+            <div className="card-header-name">{author.name} asks:</div>
+          </Card.Header>
+          <h2>Would you rather</h2>
           <p>1. {question.optionOne.text}</p>
           <p>2. {question.optionTwo.text}</p>
           <Link to={'/questions/' + question.id}>

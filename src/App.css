@@ -91,6 +91,19 @@
   margin-bottom: 20px;
 }
 
+.card-header-avatar {
+  float: left;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.card-header-name {
+  margin-top: 8px;
+  text-align: left;
+}
+
 .leaderboard-card-body {
   display: flex;
   justify-content: space-between;

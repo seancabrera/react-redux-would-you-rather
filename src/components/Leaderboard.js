@@ -16,7 +16,7 @@ class Leaderboard extends React.Component {
               <Card.Header>{user.name}</Card.Header>
               <div className="leaderboard-card-body">
                 <div>
-                  Image
+                  <img alt={user.name} src={user.avatarURL} height="100px" width="100px"/>
                 </div>
                 <div className="leaderboard-score-details">
                   <p><strong>Answered questions: {user.answers}</strong></p>
@@ -44,7 +44,8 @@ function formatUserData(users) {
     userData.push({
       name: user.name,
       questions: user.questions.length,
-      answers: Object.keys(user.answers).length
+      answers: Object.keys(user.answers).length,
+      avatarURL: user.avatarURL
     });
   });
 
