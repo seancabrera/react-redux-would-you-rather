@@ -1,17 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import QuestionSummary from './QuestionSummary'
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import { connect } from 'react-redux';
+import QuestionSummary from './QuestionSummary';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import Spinner from 'react-bootstrap/Spinner';
 
 class Home extends React.Component {
   render() {
-    const { questions, authedUser } = this.props;
+    const { questions, authedUser, loading } = this.props;
 
     const answeredQuestions = getAnsweredQuestions(questions, authedUser);
     const unansweredQuestions = getUnansweredQuestions(questions, authedUser);
 
     return (
+      loading ?
+      <Spinner animation="grow" /> :
+
       <div className="home">
         <Tabs defaultActiveKey="unanswered">
           <Tab eventKey="unanswered" title="Unanswered Questions">
@@ -54,7 +58,7 @@ function sortByTimestamp(a, b) {
   return b.timestamp - a.timestamp;
 }
 
-function mapStateToProps ({ authedUser, questions }) {
+function mapStateToProps ({ authedUser, loading, questions }) {
   const questionsArray = [];
     Object.keys(questions).forEach(questionId => {
       questionsArray.push(questions[questionId]);
@@ -62,6 +66,7 @@ function mapStateToProps ({ authedUser, questions }) {
 
   return {
     authedUser,
+    loading,
     questions: questionsArray
   };
 }
