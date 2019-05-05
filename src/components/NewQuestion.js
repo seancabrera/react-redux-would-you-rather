@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
 import { saveQuestion } from '../actions/questions';
 
 class NewQuestion extends React.Component {
@@ -10,7 +11,8 @@ class NewQuestion extends React.Component {
     super(props);
     this.state = {
       optionOne: '',
-      optionTwo: ''
+      optionTwo: '',
+      saving: false
     };
 
     this.setOptionOne = this.setOptionOne.bind(this);
@@ -33,6 +35,10 @@ class NewQuestion extends React.Component {
   submitAnswer() {
     const { authedUser, question } = this.props;
 
+    this.setState({
+      saving: true
+    });
+
     this.props.dispatch(saveQuestion({
         author: authedUser,
         optionOneText: this.state.optionOne,
@@ -42,6 +48,8 @@ class NewQuestion extends React.Component {
   }
 
   render() {
+    const { saving } = this.state;
+
     return (
       <Card>
         <Card.Header>Create New Question</Card.Header>
@@ -69,7 +77,16 @@ class NewQuestion extends React.Component {
               className='submit-button'
               variant="info"
               onClick={this.submitAnswer}
+              disabled={saving}
             >
+            { saving &&
+              <Spinner
+                animation="border"
+                as="span"
+                size="sm"
+                className="saving-spinner"/>
+            }
+
               Submit
             </Button>
           </div>
