@@ -36,7 +36,7 @@ class AppNavbar extends React.Component {
               </LinkContainer>
             </NavItem>
             <NavItem>
-              <LinkContainer to="/new-question">
+              <LinkContainer to="/add">
                 <NavLink>New Question</NavLink>
               </LinkContainer>
             </NavItem>

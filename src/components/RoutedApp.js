@@ -29,7 +29,7 @@ class RoutedApp extends Component {
 
           <div className="app-body">
             <Route exact path="/" component={Home} />
-            <Route path="/new-question" component={NewQuestion} />
+            <Route path="/add" component={NewQuestion} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/questions/:id" component={Question} />
           </div>
