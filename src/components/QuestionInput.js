@@ -69,9 +69,9 @@ class QuestionInput extends React.Component {
             </div>
           </div>
 
-          <div className="question-button-container">
+          <div className="submit-button-container">
             <Button
-              className='question-button'
+              className='submit-button'
               variant="info"
               onClick={this.submitAnswer}
             >

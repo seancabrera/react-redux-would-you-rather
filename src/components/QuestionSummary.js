@@ -22,7 +22,7 @@ class QuestionSummary extends React.Component {
           <p>1. {question.optionOne.text}</p>
           <p>2. {question.optionTwo.text}</p>
           <Link to={'/questions/' + question.id}>
-            <Button className='question-button' variant="info">
+            <Button className='submit-button' variant="info">
               View Poll
             </Button>
           </Link>

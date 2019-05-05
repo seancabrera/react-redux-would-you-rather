@@ -40,13 +40,13 @@
   margin-bottom: 20px;
 }
 
-.question-button {
+.submit-button {
   margin: 10px;
   margin-top: 10px;
   width: 95%;
 }
 
-.question-button-container {
+.submit-button-container {
   text-align: center;
 }
 
@@ -116,4 +116,24 @@
 
 .leaderboard-score {
   font-size: 24px;
+}
+
+.login {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  text-align: center;
+}
+
+.login-select {
+  margin: 20px;
+}
+
+.login-welcome {
+  font-size: 32px;
+}
+
+.login-please {
+  margin-bottom: 0px;
 }

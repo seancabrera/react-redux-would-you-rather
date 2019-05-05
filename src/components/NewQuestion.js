@@ -64,9 +64,9 @@ class NewQuestion extends React.Component {
           onChange={e => this.setOptionTwo(e.target.value)}
         />
 
-        <div className="question-button-container">
+        <div className="submit-button-container">
             <Button
-              className='question-button'
+              className='submit-button'
               variant="info"
               onClick={this.submitAnswer}
             >

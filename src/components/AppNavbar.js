@@ -1,12 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
 import { LinkContainer } from 'react-router-bootstrap';
+import { setAuthedUser } from '../actions/authedUser';
 
 class AppNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    this.props.dispatch(setAuthedUser(null));
+  }
+
   render() {
+    const { authedUser, users } = this.props;
+    const username = users[authedUser] ? users[authedUser].name : '';
+
     return (
       <Navbar bg="dark" variant="dark" expand="md">
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -33,9 +48,9 @@ class AppNavbar extends React.Component {
           </Nav>
           <Nav>
             <Navbar.Text className="navbar-user">
-              Tyler McGinnis
+              {username && <span>Hello, {username}</span>}
             </Navbar.Text>
-            <Nav.Link href="#logout">Logout</Nav.Link>
+            <Nav.Link onClick={this.logout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -43,4 +58,11 @@ class AppNavbar extends React.Component {
   }
 }
 
-export default AppNavbar;
+function mapStateToProps ({ authedUser, users }) {
+  return {
+    authedUser,
+    users
+  };
+}
+
+export default connect(mapStateToProps)(AppNavbar);
