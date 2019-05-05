@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -27,8 +27,6 @@ class Login extends React.Component {
   }
 
   render() {
-    const { authedUser } = this.props;
-
     return (
       <div className="login">
         <Card>

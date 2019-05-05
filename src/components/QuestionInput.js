@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import { withRouter } from 'react-router-dom';
-import { handleSaveQuestionAnswer } from '../actions/questions';
+import { saveQuestionAnswer } from '../actions/questions';
 
 class QuestionInput extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class QuestionInput extends React.Component {
       saving: true
     });
 
-    this.props.dispatch(handleSaveQuestionAnswer({
+    this.props.dispatch(saveQuestionAnswer({
         authedUser: authedUser,
         qid: question.id,
         answer: this.state.option

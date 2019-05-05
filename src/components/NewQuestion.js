@@ -33,7 +33,7 @@ class NewQuestion extends React.Component {
   }
 
   submitAnswer() {
-    const { authedUser, question } = this.props;
+    const { authedUser } = this.props;
 
     this.setState({
       saving: true

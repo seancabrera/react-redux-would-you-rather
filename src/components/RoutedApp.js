@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import Home from './Home';
 import '../App.css';
@@ -11,7 +11,7 @@ import Question from './Question';
 import Spinner from 'react-bootstrap/Spinner';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-class RoutedApp extends Component {
+class RoutedApp extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }

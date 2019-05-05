@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 import Login from './Login';
 import RoutedApp from './RoutedApp';
 import '../App.css';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     const { authedUser } = this.props;
 

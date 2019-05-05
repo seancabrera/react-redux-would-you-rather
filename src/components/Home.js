@@ -4,11 +4,10 @@ import QuestionSummary from './QuestionSummary';
 import Alert from 'react-bootstrap/Alert';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import Spinner from 'react-bootstrap/Spinner';
 
 class Home extends React.Component {
   render() {
-    const { questions, authedUser, loading } = this.props;
+    const { questions, authedUser } = this.props;
 
     const answeredQuestions = getAnsweredQuestions(questions, authedUser);
     const unansweredQuestions = getUnansweredQuestions(questions, authedUser);

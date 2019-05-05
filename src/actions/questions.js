@@ -12,15 +12,6 @@ export function receiveQuestions(questions) {
 }
 
 export function saveQuestionAnswer({authedUser, qid, answer}) {
-  return {
-    type: SAVE_QUESTION_ANSWER,
-    authedUser,
-    qid,
-    answer
-  };
-}
-
-export function handleSaveQuestionAnswer({authedUser, qid, answer}) {
   return (dispatch) => {
     return data._saveQuestionAnswer({authedUser, qid, answer})
       .then(() => {

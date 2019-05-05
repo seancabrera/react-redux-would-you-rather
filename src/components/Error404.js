@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
-class Error404 extends Component {
+class Error404 extends React.Component {
   render() {
     return (
       <div>
