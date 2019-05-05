@@ -138,6 +138,10 @@
   margin-bottom: 0px;
 }
 
+.loading-spinner {
+  margin-top: 25px;
+}
+
 .saving-spinner {
   margin-right: 10px;
 }

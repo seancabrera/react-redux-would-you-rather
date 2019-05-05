@@ -7,6 +7,7 @@ import AppNavbar from './AppNavbar';
 import Leaderboard from './Leaderboard';
 import NewQuestion from './NewQuestion';
 import Question from './Question';
+import Spinner from 'react-bootstrap/Spinner';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class RoutedApp extends Component {
@@ -15,10 +16,16 @@ class RoutedApp extends Component {
   }
 
   render() {
+    const { loading } = this.props;
+
     return (
       <Router>
         <div className="App">
           <AppNavbar />
+
+        {
+          loading ?
+          <Spinner animation="grow" className="loading-spinner" /> :
 
           <div className="app-body">
             <Route exact path="/" component={Home} />
@@ -26,10 +33,17 @@ class RoutedApp extends Component {
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/questions/:id" component={Question} />
           </div>
+        }
         </div>
       </Router>
     );
   }
 }
 
-export default connect()(RoutedApp);
+function mapStateToProps ({ loading }) {
+  return {
+    loading
+  };
+}
+
+export default connect(mapStateToProps)(RoutedApp);
