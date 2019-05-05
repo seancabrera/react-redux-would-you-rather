@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class RoutedApp extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchUsersAndQuestions());
+    this.props.fetchUsersAndQuestions();
   }
 
   render() {
@@ -50,4 +50,10 @@ function mapStateToProps ({ loading }) {
   };
 }
 
-export default connect(mapStateToProps)(RoutedApp);
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchUsersAndQuestions: () => dispatch(fetchUsersAndQuestions())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoutedApp);

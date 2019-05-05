@@ -31,11 +31,11 @@ class QuestionInput extends React.Component {
       saving: true
     });
 
-    this.props.dispatch(saveQuestionAnswer({
+    this.props.saveQuestionAnswer({
         authedUser: authedUser,
         qid: question.id,
         answer: this.state.option
-    }));
+    });
   }
 
   render() {
@@ -108,5 +108,12 @@ function mapStateToProps ({ authedUser, users }) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    saveQuestionAnswer: ({authedUser, qid, answer}) => {
+      return dispatch(saveQuestionAnswer({authedUser, qid, answer}));
+    }
+  };
+}
 
-export default withRouter(connect(mapStateToProps)(QuestionInput));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(QuestionInput));

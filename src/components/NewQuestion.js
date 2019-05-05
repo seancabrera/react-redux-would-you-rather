@@ -39,11 +39,11 @@ class NewQuestion extends React.Component {
       saving: true
     });
 
-    this.props.dispatch(saveQuestion({
+    this.props.saveQuestion({
         author: authedUser,
         optionOneText: this.state.optionOne,
         optionTwoText: this.state.optionTwo
-    }))
+    })
     .then(() => this.props.history.push('/'));
   }
 
@@ -102,4 +102,12 @@ function mapStateToProps ({ authedUser, users }) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(NewQuestion));
+function mapDispatchToProps(dispatch) {
+  return {
+    saveQuestion: ({author, optionOneText, optionTwoText}) => {
+      return dispatch(saveQuestion({author, optionOneText, optionTwoText}));
+    }
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewQuestion));
