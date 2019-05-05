@@ -3,7 +3,7 @@ import { receiveQuestions } from '../actions/questions';
 import { receiveUsers } from '../actions/users';
 import { setIsLoading } from '../actions/loading';
 
-export function handleInitialData() {
+export function fetchUsersAndQuestions() {
   return (dispatch) => {
     return Promise.all([
       data._getQuestions(),

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Home from './Home';
 import '../App.css';
-import { handleInitialData } from '../actions/shared';
+import { fetchUsersAndQuestions } from '../actions/shared';
 import AppNavbar from './AppNavbar';
 import Error404 from './Error404';
 import Leaderboard from './Leaderboard';
@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class RoutedApp extends React.Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.dispatch(fetchUsersAndQuestions());
   }
 
   render() {

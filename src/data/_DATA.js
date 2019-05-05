@@ -1,3 +1,7 @@
+// This file was provided by Udacity to function as a mock
+// back end for the app. The only changes I made were to the
+// names of the users and the avatars
+
 let users = {
   tombrady: {
     id: 'tombrady',
