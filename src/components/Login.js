@@ -13,17 +13,12 @@ class Login extends React.Component {
     };
 
     this.setUser = this.setUser.bind(this);
-    this.signIn = this.signIn.bind(this);
   }
 
   setUser(user) {
     this.setState({
       user
     });
-  }
-
-  signIn() {
-    this.props.dispatch(setAuthedUser(this.state.user));
   }
 
   render() {
@@ -45,7 +40,7 @@ class Login extends React.Component {
             <Button
               className='submit-button'
               variant="info"
-              onClick={this.signIn}
+              onClick={() => this.props.login(this.state.user)}
             >
               Sign In
             </Button>
@@ -56,4 +51,10 @@ class Login extends React.Component {
   }
 }
 
-export default connect()(Login);
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (user) => dispatch(setAuthedUser(user))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Login);

@@ -8,16 +8,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { setAuthedUser } from '../actions/authedUser';
 
 class AppNavbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    this.props.dispatch(setAuthedUser(null));
-  }
-
   render() {
     const { authedUser, users } = this.props;
     const username = users[authedUser] ? users[authedUser].name : '';
@@ -50,7 +40,7 @@ class AppNavbar extends React.Component {
             <Navbar.Text className="navbar-user">
               {username && <span>Hello, {username}</span>}
             </Navbar.Text>
-            <Nav.Link onClick={this.logout}>Logout</Nav.Link>
+            <Nav.Link onClick={this.props.logout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -65,4 +55,10 @@ function mapStateToProps ({ authedUser, users }) {
   };
 }
 
-export default connect(mapStateToProps)(AppNavbar);
+function mapDispatchToProps(dispatch) {
+  return {
+    logout: () => dispatch(setAuthedUser(null))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppNavbar);

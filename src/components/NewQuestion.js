@@ -15,21 +15,12 @@ class NewQuestion extends React.Component {
       saving: false
     };
 
-    this.setOptionOne = this.setOptionOne.bind(this);
-    this.setOptionTwo = this.setOptionTwo.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
     this.submitAnswer = this.submitAnswer.bind(this);
   }
 
-  setOptionOne(optionOne) {
-    this.setState({
-      optionOne: optionOne
-    });
-  }
-
-  setOptionTwo(optionTwo) {
-    this.setState({
-      optionTwo: optionTwo
-    });
+  handleOptionChange(e) {
+    this.setState({[e.target.name]: e.target.value});
   }
 
   submitAnswer() {
@@ -39,11 +30,11 @@ class NewQuestion extends React.Component {
       saving: true
     });
 
-    this.props.dispatch(saveQuestion({
+    this.props.saveQuestion({
         author: authedUser,
         optionOneText: this.state.optionOne,
         optionTwoText: this.state.optionTwo
-    }))
+    })
     .then(() => this.props.history.push('/'));
   }
 
@@ -60,7 +51,8 @@ class NewQuestion extends React.Component {
           type="text"
           className="new-question-input"
           placeholder="Enter option one text here"
-          onChange={e => this.setOptionOne(e.target.value)}
+          name="optionOne"
+          onChange={this.handleOptionChange}
         />
 
         OR
@@ -69,7 +61,8 @@ class NewQuestion extends React.Component {
           type="text"
           className="new-question-input"
           placeholder="Enter option two text here"
-          onChange={e => this.setOptionTwo(e.target.value)}
+          name="optionTwo"
+          onChange={this.handleOptionChange}
         />
 
         <div className="submit-button-container">
@@ -102,4 +95,12 @@ function mapStateToProps ({ authedUser, users }) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(NewQuestion));
+function mapDispatchToProps(dispatch) {
+  return {
+    saveQuestion: ({author, optionOneText, optionTwoText}) => {
+      return dispatch(saveQuestion({author, optionOneText, optionTwoText}));
+    }
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewQuestion));

@@ -12,7 +12,7 @@ class Leaderboard extends React.Component {
       <div>
         {userData.map(user => {
           return (
-            <Card className="app-card">
+            <Card className="app-card" key={user.id}>
               <Card.Header>{user.name}</Card.Header>
               <div className="leaderboard-card-body">
                 <div>
@@ -43,6 +43,7 @@ function formatUserData(users) {
   Object.values(users).forEach(user => {
     userData.push({
       name: user.name,
+      id: user.id,
       questions: user.questions.length,
       answers: Object.keys(user.answers).length,
       avatarURL: user.avatarURL
